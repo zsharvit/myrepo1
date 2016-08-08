@@ -5,6 +5,9 @@
     become: yes
     become_method: sudo
   - name: Clone myreop1  repo
-    git: repo=https://github.com/zsharvit/myrepo1.git dest=~/myrepo
-    
+    git: repo=https://github.com/zsharvit/myrepo1.git dest=~/myrepo update=no
+  - name: mkdir for Maven
+    file: path=~/mvn state=directory mode=777
+  - name: install Maven        
+    unarchive: src="http://apache.spd.co.il/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz" dest=~/mvn copy=no
 
