@@ -10,4 +10,14 @@
     file: path=~/mvn state=directory mode=777
   - name: install Maven        
     unarchive: src="http://apache.spd.co.il/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz" dest=~/mvn copy=no
+  - name: mkdir for Eclipse
+    file: path=~/eclipse state=directory mode=777
+ # - name: install Eclipse
+ #   unarchive: src="https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/luna/SR1a/eclipse-cpp-luna-SR1a-linux-gtk-x86_64.tar.gz" dest=~/eclipse copy=no
+  - name: Adding the path in the Profile files
+    lineinfile: dest=~/.bash_profile line='export PATH=$PATH:M2_HOME=~/mvn:M2=${M2_HOME}/bin:PATH$M2:$PATH' state=present
+
+ # - name: Source the bash_profile file
+ #  shell: source /root/.bash_profile
+
 
