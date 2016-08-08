@@ -1,0 +1,10 @@
+- hosts: localhost
+  tasks:
+  - name: install GIT
+    yum: name=git state=latest
+    become: yes
+    become_method: sudo
+  - name: Clone myreop1  repo
+    git: repo=https://github.com/zsharvit/myrepo1.git dest=~/myrepo
+    
+
