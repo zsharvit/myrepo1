@@ -1,0 +1,6 @@
+- hosts: localhost
+  tasks:
+  - name: build a docker image
+    docker_image:
+      name: my_image
+      path: .  
