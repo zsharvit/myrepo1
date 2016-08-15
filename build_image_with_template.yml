@@ -1,6 +1,10 @@
 - hosts: localhost
   tasks:
+  - name: Create workdir
+    file: path=/home/ec2-user/image_work_dir state=directory
   - name: Create Docker file
     template:
       src: Docker.jinja
+  - name: Create image
+    docker_image: path=/home/ec2-user/image_work_dir name:petclinic
    
